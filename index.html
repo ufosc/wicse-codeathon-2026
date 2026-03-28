@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WICSE CODE-A-THON WEBSITES</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f1e3;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h3 {
+            text-align: center;
+        }
+        .group {
+            margin-bottom: 40px;
+        }
+        .group h2 {
+            color: #386842;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .student-card {
+            background-color: #6c997d;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .student-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .student-card h2 {
+            margin-top: 0;
+            color: #E6E1d3;
+        }
+        .student-card a {
+            color: #E6E1d3;
+            text-decoration: none;
+        }
+        .student-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Websites</h1>
+        <h3>Portfolios made during the WiCSE Annual Code-a-thon on 3/28/2026</h3>
+        <div id="portfolioGrid">
+        </div>
+    </div>
+
+    <script>
+        const studentGroups = [
+            {
+                group: "Group 1",
+                students: [
+                    { name: "Gayathri", portfolioUrl: "group1/KPop\ (Gayathri)\ -\ group1.html" },
+                    { name: "Maya", portfolioUrl: "group1/maya-group1.html"},
+                    { name: "Teddy", portfolioUrl: "group1/teddy_group1.html"}
+                ]
+            },
+            {
+                group: "Demos",
+                students: [
+                    { name: "Group 1", portfolioUrl: "demos/group1.html" },
+                ]
+            },
+        ];
+
+        function createStudentCards() {
+            const grid = document.getElementById('portfolioGrid');
+            
+            studentGroups.forEach(group => {
+                const groupSection = document.createElement('div');
+                groupSection.className = 'group';
+
+                const groupTitle = document.createElement('h2');
+                groupTitle.innerText = group.group;
+                groupSection.appendChild(groupTitle);
+
+                const portfolioGrid = document.createElement('div');
+                portfolioGrid.className = 'portfolio-grid';
+
+                group.students.forEach(student => {
+                    const card = document.createElement('div');
+                    card.className = 'student-card';
+                    card.innerHTML = `
+                        <h2>${student.name}</h2>
+                        <a href="${student.portfolioUrl}" target="_blank">View Portfolio</a>
+                    `;
+                    portfolioGrid.appendChild(card);
+                });
+
+                groupSection.appendChild(portfolioGrid);
+                grid.appendChild(groupSection);
+            });
+        }
+
+        window.onload = createStudentCards;
+    </script>
+</body>
+</html>
