@@ -71,14 +71,40 @@
                 group: "Group 1",
                 students: [
                     { name: "Gayathri", portfolioUrl: "group1/KPop\ (Gayathri)\ -\ group1.html" },
-                    { name: "Maya", portfolioUrl: "group1/maya-group1.html"},
-                    { name: "Teddy", portfolioUrl: "group1/teddy_group1.html"}
+                    { name: "Maya", portfolioUrl: "group1/maya-group1.html" },
+                    { name: "Teddy", portfolioUrl: "group1/teddy_group1.html" }
+                ]
+            },
+            {
+                group: "Group 3",
+                students: [
+                    { name: "Isabella", portfolioUrl: "group3/isabellab.html" },
+                    { name: "Jayden", portfolioUrl: "group3/Jayden.html" },
+                ]
+            },
+            {
+                group: "Group 4",
+                students: [
+                    { name: "Coralie", portfolioUrl: "group4/coralie.html" },
+                    { name: "Maeve", portfolioUrl: "group4/maeve.html" },
+                    { name: "Natalie", portfolioUrl: "group4/natalie.html" },
+                    { name: "Vihaan", portfolioUrl: "group4/vihaan_g4.html" }
+                ]
+            },
+            {
+                group: "Group 5",
+                students: [
+                    { name: "Lydia", portfolioUrl: "group5/lydia.html" },
+                    { name: "Nikila", portfolioUrl: "group5/Nikila.html" },
+                    { name: "Evelyn", portfolioUrl: "group5/Evelyn.html" }
                 ]
             },
             {
                 group: "Demos",
                 students: [
-                    { name: "Group 1", portfolioUrl: "demos/group1.html" },
+                    { name: "Template", portfolioUrl: "demos/template.html" },
+                    { name: "Group 1 Demo", portfolioUrl: "demos/group1.html" },
+                    { name: "Group 3 Demo", portfolioUrl: "demos/group3.html" }
                 ]
             },
         ];
@@ -101,8 +127,9 @@
                     const card = document.createElement('div');
                     card.className = 'student-card';
                     card.innerHTML = `
-                        <h2>${student.name}</h2>
-                        <a href="${student.portfolioUrl}" target="_blank">View Portfolio</a>
+                        <a href="${student.portfolioUrl}" target="_blank">
+                          <h2>${student.name}</h2>
+                        </a>
                     `;
                     portfolioGrid.appendChild(card);
                 });
